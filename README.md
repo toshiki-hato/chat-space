@@ -5,29 +5,30 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false, index: true|
 ### Association
-- has_many :group,  through:  :user
+- has_many :groups, through: :users_groups
 - has_many :chat
+- has_many :users_groups
 
 ## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user_id
-- belongs_to :group_id
+- belongs_to :user
+- belongs_to :group
+
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
-|group_users|string|null: false|
-|user_id|integer|null: false|
+
 ### Association
-- belongs_to :user,  through:  :group
-- belongs_to :chat
+- has_many :users, through: :users_groups
+- has_many :chats
 
 
 ## chatsテーブル
@@ -35,7 +36,7 @@
 |------|----|-------|
 |text|text|null: false|
 |image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
