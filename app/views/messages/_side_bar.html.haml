@@ -2,11 +2,11 @@
   .Side__username
     .Top-item
       .Top-item__name
-        masa
+        = current_user.name
       .Top-item__icons
         = link_to "#", class: "edit-btn" do
           <i class="far fa-edit"></i>
-        = link_to "#", class: "cog-btn" do
+        = link_to edit_user_path(current_user) do
           <i class="fas fa-cog"></i>
 
   .Side__group
