@@ -4,18 +4,18 @@
       .Top-item__name
         = current_user.name
       .Top-item__icons
-        = link_to new_group_path, class: "edit-btn" do
+        = link_to new_group_path(@group), class: "edit-btn" do
           <i class="far fa-edit"></i>
         = link_to edit_user_path(current_user) do
           <i class="fas fa-cog"></i>
 
   .Side__group
     - current_user.groups.each do |group|
-      .Group
-        = link_to root_path do
-          .Group__name
+      .Box-group
+        = link_to group_messages_path(group)do
+          .Box-group__name
             = group.name
-          .Group__message
-            メッセージはまだありません
+          .Box-group__message
+            = group.show_last_message
 
 
