@@ -1,0 +1,25 @@
+.Messagebox{
+  &__messageinfo{
+  margin-bottom: 12px;
+  display: flex;
+    &__username {
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    }
+    &__date {
+      padding-left: 10px;
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  &__message {
+    color: #434A54;
+    font-size: 14px;
+  }
+  .Message__image{
+    height: 300px;
+    // width: 200px;
+  }
+
+}

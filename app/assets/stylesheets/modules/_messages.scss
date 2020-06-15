@@ -3,6 +3,7 @@
 }
 .wrapper {
   display: flex;
+  
 }
 
 .Side {
@@ -36,6 +37,23 @@
   &__group{
     background-color: #2f3e51;
     height: calc(100vh - 100px);
+    padding: 0px 20px;
+    overflow: scroll;
+    a{
+      color:#ffffff;
+      text-decoration: none;
+    }
+    .Box-group {
+      padding: 20px 0 40px;
+      &__name{
+        font-size: 15px;
+        box-sizing: border-box;
+      }
+      &__message{
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
   }
 }
 
@@ -51,11 +69,13 @@
     justify-content: space-between;
     height: 100px;
     &__box {
-      color: #333333;
-      font-size: 20px;
-      padding-top: 35px;
-      margin-bottom: 15px;
-      &__member {
+      margin-top: 35px;
+      &__group-name {
+        color: #333333;
+        font-size: 20px;
+      }
+      &__member-name{
+        margin-top: 15px;
         color: #999999;
         font-size: 12px;
       }
@@ -70,60 +90,44 @@
       }
     }
   }
-
   &__message{
     height: calc(100vh - 190px);
     background-color: #fafafa;
     padding: 35px 0px 0px 40px;
-    &__list{
-      color: #333333;
-      font-size: 16px;
-      margin-bottom: 12px;
-      display: flex;
-      &__message1{
-        color: #999999;
-        font-size: 12px;
-      }
-    }
-    &__list2{
-      color: #434A54;
-      font-size: 14px;
-      margin-bottom: 46px;
-    }
+    overflow: scroll;
   }
-
   &__form{
     background-color: #dddddd;
     box-sizing: border-box;
     height: 90px;
     padding: 20px 50px 20px 40px;
-    &__input{
-      width: 100%;
-      display: flex;
-      &__1{
+      &__input{
         width: 100%;
-        position: relative;
-        .input-text{
-          border: none;
-          height: 50px;
+        display: flex;
+        &__box{
           width: 100%;
-          padding: 0 45px 0 10px;
-        }
-        .input-box__image{
-          position: absolute;
-          right: 10px;
-          top: 15px;
-          input{
-            display: none;
+          position: relative;
+          &__text{
+            border: none;
+            height: 50px;
+            width: 100%;
+            padding: 0 45px 0 10px;
           }
-          i {
+          &__image{
+            position: absolute;
+            right: 10px;
+            top: 15px;
             font-size: 20px;
+            // cursor: pointer;
+            .icon{
+              display: inline-block;
+            }
+            .file{
+              display: none;
+            }
           }
-
         }
-      }
-      &__2{
-        .submit-btn{
+        &__submit-btn{
           background-color: #38aef0;
           color: #ffffff;
           border: 1px solid #38aef0;
@@ -133,8 +137,5 @@
           text-align: center;
         }
       }
-    }
   }
 }
-
-
