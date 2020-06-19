@@ -2,7 +2,28 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="Messagebox">
+        `<div class="MessageBox" data-message-id=${message.id}>
+          <div class="Messagebox">
+            <div class="Messagebox__messageinfo">
+              <div class="Messagebox__messageinfo__username">
+                ${message.user_name}
+              </div>
+              <div class="Messagebox__messageinfo__date">
+                ${message.created_at}
+              </div>
+            </div>
+            <div class="Messagebox__message">
+              <p class="Message__content">
+                ${message.content}
+              </p>
+              <img class="Message__image" src="${message.image}">
+            </div>
+        </div>`
+      return html;
+    } else {
+      let html =
+      `<div class="MessageBox" data-message-id=${message.id}>
+        <div class="Messagebox">
           <div class="Messagebox__messageinfo">
             <div class="Messagebox__messageinfo__username">
               ${message.user_name}
@@ -15,27 +36,8 @@ $(function(){
             <p class="Message__content">
               ${message.content}
             </p>
-            <img class="Message__image" src="${message.image}">
           </div>
         </div>`
-      return html;
-    } else {
-      let html =
-      `<div class="Messagebox">
-        <div class="Messagebox__messageinfo">
-          <div class="Messagebox__messageinfo__username">
-            ${message.user_name}
-          </div>
-          <div class="Messagebox__messageinfo__date">
-            ${message.created_at}
-          </div>
-        </div>
-        <div class="Messagebox__message">
-          <p class="Message__content">
-            ${message.content}
-          </p>
-        </div>
-      </div>`
       return html;
     };
   }
@@ -56,6 +58,7 @@ $(function(){
       $('.Main__message').append(html);      
       $('.Main__form__input')[0].reset();
       $('.Main__message').animate({ scrollTop: $('.Main__message')[0].scrollHeight});
+      $('.Main__form__input__submit-btn').prop("disabled", false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
